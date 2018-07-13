@@ -1,3 +1,5 @@
+document.body.classList.add(chrome.devtools.panels.themeName);
+
 const app = new Vue({
   el: '#app',
   data: {

@@ -6,10 +6,17 @@ $color-control-line-default: #f1f1f1;
 $color-control-line-hover: #c5c5c5;
 $color-control-line-focus: #009ff2;
 $color-control-separate: #ddd;
-$color-highlight: #e860a0;
+$color-highlight: #d65994;
+$color-text-default: #111;
 $color-text-muted: #bbb;
 
 // main
+* {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica',
+    'Arial', sans-serif;
+}
+
 html,
 body {
   margin: 0;
@@ -17,7 +24,13 @@ body {
   width: 100%;
   height: 100%;
   cursor: default;
+  color: $color-text-default;
   background: white;
+  font-size: 12px;
+}
+
+body.dark {
+  filter: invert(88%);
 }
 
 .app {
@@ -59,7 +72,7 @@ body {
 }
 
 .log-table__highlight {
-  color: black;
+  color: $color-text-default;
 }
 
 .control-list {
@@ -118,6 +131,7 @@ body {
   box-shadow: 0 0 0 1px $color-control-line-default;
   padding: 4px;
   flex: 1;
+  font-size: 12px;
 }
 
 .control:hover {
