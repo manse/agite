@@ -1,0 +1,129 @@
+$color-background: #f1f1f1;
+$color-line-default: #c5c5c5;
+$color-line-light: #eaeaea;
+$color-cell-background: #f4f3f4;
+$color-control-line-default: #f1f1f1;
+$color-control-line-hover: #c5c5c5;
+$color-control-line-focus: #009ff2;
+$color-control-separate: #ddd;
+$color-highlight: #e860a0;
+$color-text-muted: #bbb;
+
+// main
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  background: white;
+}
+
+.app {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+.app__body {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.app__control {
+  background: $color-background;
+  padding: 3px;
+  border-bottom: 1px solid $color-line-default;
+}
+
+.log-table {
+  width: 100%;
+}
+
+.log-table td {
+  padding: 4px 6px;
+  color: $color-text-muted;
+  line-height: 18px;
+  border-bottom: 1px solid $color-line-light;
+}
+
+.log-table tr:nth-child(2n) td {
+  background: $color-cell-background;
+}
+
+.log-table b {
+  font-weight: bold;
+  color: $color-highlight;
+}
+
+.log-table__highlight {
+  color: black;
+}
+
+.control-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  user-select: none;
+}
+.control-list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+}
+.control-list__control {
+  flex: 1;
+  margin: 0;
+  padding: 1px 2px;
+  display: flex;
+}
+@media screen and (max-width: 440px) {
+  .control-list {
+    flex-direction: column;
+  }
+  .control-list__control {
+    padding-bottom: 2px;
+  }
+  .control-list__control--separate {
+    padding-bottom: 6px;
+    border-bottom: 1px solid $color-control-separate;
+    margin-bottom: 4px;
+  }
+}
+@media screen and (min-width: 441px) {
+  .control-list__control--separate {
+    padding-right: 6px;
+    border-right: 1px solid $color-control-separate;
+    margin-right: 4px;
+  }
+}
+
+.control-icon {
+  opacity: 0.6;
+  width: 14px;
+  height: 14px;
+}
+.control-icon:hover {
+  opacity: 0.8;
+}
+
+.control {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  box-shadow: 0 0 0 1px $color-control-line-default;
+  padding: 4px;
+  flex: 1;
+}
+
+.control:hover {
+  box-shadow: 0 0 0 1px $color-control-line-hover;
+}
+
+.control:focus {
+  box-shadow: 0 0 0 1px $color-control-line-focus;
+}

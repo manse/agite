@@ -1,0 +1,20 @@
+{
+  "name": "Agite",
+  "version": "1.0.0",
+  "description":
+    "Intercept XHR and fetch calls and then change the requesting URL",
+  "manifest_version": 2,
+  "permissions": ["activeTab", "storage", "tabs", "http://*/", "https://*/"],
+  "devtools_page": "frontend/entrypoint.html",
+  "background": {
+    "scripts": ["backend/background.js"]
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["backend/content-script.js"]
+    }
+  ],
+  "web_accessible_resources": ["backend/page-script.js"]
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/panel.css">
+</head>
+
+<body>
+    <div id="app" class="app">
+        <div class="app__control">
+            <ul class="control-list">
+                <li class="control-list__item" v-on:click="clear">
+                    <img src="img/clear.png" class="control-icon">
+                </li>
+                <li class="control-list__control control-list__control--separate">
+                    <input class="control" type="text" v-model="match" placeholder="Match">
+                </li>
+                <li class="control-list__control">
+                    <input class="control" type="text" v-model="find" placeholder="Find">
+                </li>
+                <li class="control-list__control">
+                    <input class="control" type="text" v-model="replace" placeholder="Replace">
+                </li>
+                <li class="control-list__item">
+                    <label>
+                        <input type="checkbox" v-model="regex"> Regex
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="app__body">
+            <table class="log-table" border="0" cellspacing="0" cellpadding="0">
+                <tr v-for="log in displayLogs">
+                    <td>
+                        <div v-if="!match">
+                            {{ log.url }}
+                        </div>
+                        <div v-if="match">
+                            <div v-html="log.beforeUrlHTML"></div>
+                            <div class="log-table__highlight" v-html="log.afterUrlHTML"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="js/vendor/vue.min.js "></script>
+    <script src="js/panel.js "></script>
+</body>
+
+</html>
